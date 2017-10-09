@@ -30,7 +30,10 @@
 #Create ssh
     echo "# !/bin/bash
     echo \"-----------------------------------------------\" 
-    echo \"Hi $LOGNAME, you are login from $SSH_CONNECTION\"" > /etc/profile.d/splunk.sh
+    echo \"Hi $LOGNAME, you are login from $SSH_CONNECTION\"
+    export SPLUNK_HOME=/home/splunk
+    " > /etc/profile.d/splunk.sh
+    
 
 #Get splunk
     wget -O splunk.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=7.0.0&product=splunk&filename=splunk-7.0.0-c8a78efdd40f-Linux-x86_64.tgz&wget=true'
