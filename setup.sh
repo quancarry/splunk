@@ -1,7 +1,8 @@
 # !bin/bash
 
 #Change hostname
-
+    
+     hostnamectl set-hostname SPLUNK
 
 #Disable SE Linux
     setenforce 0
