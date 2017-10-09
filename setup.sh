@@ -17,14 +17,9 @@
     sed -i "\$a ip rule add from 172.16.5.50\/32 table rt2" /etc/rc.d/rc.local
     sed -i "\$a ip rule add to 172.16.5.50\/32 table rt2" /etc/rc.d/rc.local
 
-#disable THP at boot time
-     if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
-           echo never > /sys/kernel/mm/transparent_hugepage/enabled
-     fi
-     if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
-         echo never > /sys/kernel/mm/transparent_hugepage/defrag
-     fi
+    sed -i "\$a #disable THP at boot time" /etc/rc.d/rc.local
 
+     sed -i "\$a if test -f \/sys\/kernel\/mm\/transparent_hugepage\/enabled;then\necho never > /sys/kernel/mm/transparent_hugepage/enabled\nfi\nif test -f /sys/kernel/mm/transparent_hugepage/defrag; then\necho never > /sys/kernel/mm/transparent_hugepage/defrag\nfi\n" >/etc/rc.d/rc.local
 #Create ssh
     echo "# !/bin/bash
     echo \"-----------------------------------------------\" 
