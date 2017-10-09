@@ -17,9 +17,6 @@
     sed -i "\$a ip rule add from 172.16.5.50\/32 table rt2" /etc/rc.d/rc.local
     sed -i "\$a ip rule add to 172.16.5.50\/32 table rt2" /etc/rc.d/rc.local
 
-#Define variables home
-    export SPLUNK_HOME=/home/splunk
-  
 #disable THP at boot time
      if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
            echo never > /sys/kernel/mm/transparent_hugepage/enabled
@@ -57,7 +54,10 @@
     else
         echo "File is corrupted."
     fi
-
+    
+#Define variables home
+    export SPLUNK_HOME=/home/splunk
+  
 
 
 
