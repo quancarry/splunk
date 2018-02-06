@@ -8,11 +8,11 @@ import time
 from pprint import pprint
 import sys
 # Define Authentication & hostname.
-baseurl = sys.argv[1] #'https://localhost:8089'
-userName =sys.argv[2] # 'admin'
-password =sys.argv[3] #'anhquan1'
-messages_title =sys.argv[4] #'Messses (%d) from script.' % count
-messages_body = sys.argv[5] #'IP client '+m.group(1) + ' has overcome 10 requests all time . Totally has sent '+m.group(2) + ' requests.'
+baseurl = 'https://localhost:8089'
+userName = 'admin'
+password = 'anhquan1'
+messages_title =sys.argv[1] #'Messses (%d) from script.' % count
+messages_body = sys.argv[2] #'IP client '+m.group(1) + ' has overcome 10 requests all time . Totally has sent '+m.group(2) + ' requests.'
 
 
 # Authenticate with server.
@@ -34,7 +34,7 @@ service='/services/messages'
 
 
 payload = 'name': messages_title, 'value': messages_body}
-if len(sys.argv) < 6:
+if len(sys.argv) < 3:
     httplib2.Http(disable_ssl_certificate_validation=True).request(baseurl + service, 'POST',
                                                                        headers={
                                                                            'Authorization': 'Splunk %s' % sessionKey},
