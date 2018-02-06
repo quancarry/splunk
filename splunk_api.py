@@ -43,3 +43,4 @@ if len(sys.argv) < 3:
                                                                        body=urllib.urlencode(payload))[1]
 else:
     print 'Missing Argruments .'
+    print 'python splunk_api.py <title> <content> .'
