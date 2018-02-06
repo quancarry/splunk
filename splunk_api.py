@@ -34,6 +34,8 @@ service='/services/messages'
 
 
 payload = 'name': messages_title, 'value': messages_body}
+        
+#main function produce .
 if len(sys.argv) < 3:
     httplib2.Http(disable_ssl_certificate_validation=True).request(baseurl + service, 'POST',
                                                                        headers={
